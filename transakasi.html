@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aplikasi Perpustakaan</title>
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+
+<header>
+    <div style="display:flex; align-items:center;">
+        <img src="css/logo2.png" alt="Logo Perpustakaan">
+        <h1>Perpustakaan Digital</h1>
+    </div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="transakasi.html">Transaksi</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="login.html">Login</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+<section id="transaksi">
+    <h2>Transaksi</h2>
+
+    <form onsubmit="return validasiTransaksi()">
+        <input type="text" id="nama" placeholder="Nama Transaksi">
+        <input type="number" id="jumlah" placeholder="Jumlah Buku">
+        <select id="kategori">
+            <option value="">-- Pilih Kategori --</option>
+            <option>Fiksi</option>
+            <option>Non Fiksi</option>
+        </select>
+
+        <p id="errorMsg" class="error"></p>
+
+        <button type="submit">Simpan</button>
+    </form>
+
+    <p>
+        <a href="daftarTransaksi.html">> Lihat Daftar Transaksi</a>
+    </p>
+</section>
+</main>
+
+<footer>
+    <p>&copy; rafiqoh</p>
+</footer>
+
+<script>
+    function validasiTransaksi() {
+        const nama = document.getElementById("nama").value;
+        const jumlah = document.getElementById("jumlah").value;
+        const kategori = document.getElementById("kategori").value;
+        const errorMsg = document.getElementById("errorMsg");
+
+        if (nama === "" || jumlah === "" || kategori === "") {
+            errorMsg.textContent = "Semua input harus diisi!";
+            return false;
+        }
+
+        alert("Transaksi berhasil disimpan!");
+        return true;
+    }
+</script>
+
+</body>
+</html>
